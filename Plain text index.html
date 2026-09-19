@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Una invitación</title>
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #eeece7;
+
+            color: #242321;
+
+            font-family: "DM Sans", sans-serif;
+
+            overflow: hidden;
+        }
+
+        .container {
+            width: min(90%, 560px);
+
+            padding: 60px 35px;
+
+            background: #f7f5f0;
+
+            border: 1px solid #dedbd3;
+
+            box-shadow:
+                0 20px 60px rgba(30, 28, 25, 0.10);
+
+            text-align: center;
+
+            animation: appear 0.8s ease;
+        }
+
+        .date {
+            font-size: 13px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            color: #77736b;
+
+            margin-bottom: 35px;
+        }
+
+        .line {
+            width: 45px;
+            height: 1px;
+
+            background: #aaa59c;
+
+            margin: 0 auto 30px;
+        }
+
+        h1 {
+            font-family: "Playfair Display", serif;
+
+            font-weight: 400;
+
+            font-size: clamp(34px, 8vw, 52px);
+
+            line-height: 1.15;
+
+            margin: 0 0 25px;
+        }
+
+        p {
+            font-size: 17px;
+
+            line-height: 1.7;
+
+            color: #5e5a54;
+
+            max-width: 430px;
+
+            margin: 0 auto;
+        }
+
+        .buttons {
+            margin-top: 40px;
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+        }
+
+        button {
+            font-family: "DM Sans", sans-serif;
+
+            font-size: 15px;
+
+            font-weight: 500;
+
+            padding: 14px 28px;
+
+            border-radius: 2px;
+
+            cursor: pointer;
+
+            transition: all 0.25s ease;
+        }
+
+        .primary {
+            background: #292824;
+
+            color: #f7f5f0;
+
+            border: 1px solid #292824;
+        }
+
+        .primary:hover {
+            background: #45423c;
+
+            transform: translateY(-2px);
+        }
+
+        .secondary {
+            background: transparent;
+
+            color: #4d4942;
+
+            border: 1px solid #bdb8af;
+        }
+
+        .secondary:hover {
+            background: #e9e6df;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .final-title {
+            font-size: clamp(38px, 9vw, 56px);
+        }
+
+        .final-date {
+            margin-top: 30px;
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 22px;
+
+            color: #37342f;
+        }
+
+        .signature {
+            margin-top: 35px;
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 20px;
+
+            color: #69645c;
+        }
+
+        @keyframes appear {
+
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- PANTALLA 1 -->
+
+    <div class="container" id="screen1">
+
+        <div class="date">
+            Lunes, 21 de septiembre
+        </div>
+
+        <div class="line"></div>
+
+        <h1>
+            Tengo una invitación para ti.
+        </h1>
+
+        <p>
+            Una de esas que no necesitan demasiadas palabras.
+        </p>
+
+        <div class="buttons">
+
+            <button
+                class="primary"
+                onclick="nextScreen(2)"
+            >
+                Ver invitación
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- PANTALLA 2 -->
+
+    <div class="container hidden" id="screen2">
+
+        <div class="date">
+            Lunes, 21 de septiembre
+        </div>
+
+        <div class="line"></div>
+
+        <h1>
+            Quiero verte.
+        </h1>
+
+        <p>
+            Compartir un rato contigo,
+            hablar de cualquier cosa,
+            y dejar que la noche haga el resto.
+        </p>
+
+        <div class="buttons">
+
+            <button
+                class="primary"
+                onclick="nextScreen(3)"
+            >
+                Continuar
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- PANTALLA 3 -->
+
+    <div class="container hidden" id="screen3">
+
+        <div class="date">
+            Lunes, 21 de septiembre
+        </div>
+
+        <div class="line"></div>
+
+        <h1>
+            ¿Te gustaría salir conmigo?
+        </h1>
+
+        <p>
+            Una cita.
+            Tú y yo.
+        </p>
+
+        <div class="buttons">
+
+            <button
+                class="primary"
+                onclick="accept()"
+            >
+                Sí, me gustaría
+            </button>
+
+            <button
+                class="secondary"
+                onclick="nextScreen(4)"
+            >
+                Déjame pensarlo
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- PANTALLA 4 -->
+
+    <div class="container hidden" id="screen4">
+
+        <div class="date">
+            Lunes, 21 de septiembre
+        </div>
+
+        <div class="line"></div>
+
+        <h1>
+            Está bien.
+        </h1>
+
+        <p>
+            Tómate tu tiempo.
+            Aunque espero que no demasiado.
+        </p>
+
+        <div class="buttons">
+
+            <button
+                class="primary"
+                onclick="accept()"
+            >
+                Acepto
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- PANTALLA FINAL -->
+
+    <div class="container hidden" id="final">
+
+        <div class="date">
+            Lunes, 21 de septiembre
+        </div>
+
+        <div class="line"></div>
+
+        <h1 class="final-title">
+            Entonces tenemos una cita.
+        </h1>
+
+        <p>
+            Ponte linda como siempre.
+        </p>
+
+        <div class="final-date">
+            21 de septiembre
+        </div>
+
+        <div class="signature">
+            El resto déjamelo a mí.
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function nextScreen(number) {
+
+            document
+                .querySelectorAll(".container")
+                .forEach(element => {
+
+                    element.classList.add("hidden");
+
+                });
+
+            document
+                .getElementById("screen" + number)
+                .classList.remove("hidden");
+
+        }
+
+
+        function accept() {
+
+            document
+                .querySelectorAll(".container")
+                .forEach(element => {
+
+                    element.classList.add("hidden");
+
+                });
+
+            document
+                .getElementById("final")
+                .classList.remove("hidden");
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
